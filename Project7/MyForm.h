@@ -4,6 +4,7 @@
 #include <sstream>
 #include <algorithm>
 #include <msclr/marshal_cppstd.h>
+
 namespace Project7 {
 
   using namespace std;
@@ -46,7 +47,7 @@ namespace Project7 {
 	private: System::Windows::Forms::ComboBox^ comboBox1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart1;
+
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Label^ label6;
@@ -60,7 +61,11 @@ namespace Project7 {
 	private: System::Windows::Forms::Label^ label14;
 	private: System::Windows::Forms::Label^ label15;
 	private: System::Windows::Forms::Label^ label16;
+
+	private: System::Windows::Forms::Label^ label17;
+	private: System::Windows::Forms::Label^ label18;
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart2;
+
 	protected:
 
 	private:
@@ -77,15 +82,15 @@ namespace Project7 {
 		void InitializeComponent(void)
 		{
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
@@ -99,14 +104,15 @@ namespace Project7 {
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->label16 = (gcnew System::Windows::Forms::Label());
+			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->label18 = (gcnew System::Windows::Forms::Label());
 			this->chart2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(21, 406);
+			this->button1->Location = System::Drawing::Point(12, 462);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(158, 49);
 			this->button1->TabIndex = 0;
@@ -119,15 +125,15 @@ namespace Project7 {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(18, 84);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(103, 17);
+			this->label1->Size = System::Drawing::Size(56, 17);
 			this->label1->TabIndex = 1;
-			this->label1->Text = L"Первый месяц";
+			this->label1->Text = L"Январь";
 			// 
 			// comboBox1
 			// 
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"USD", L"EUR", L"CNY", L"GBP" });
-			this->comboBox1->Location = System::Drawing::Point(40, 48);
+			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"USD", L"EUR", L"GBP" });
+			this->comboBox1->Location = System::Drawing::Point(12, 24);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(121, 24);
 			this->comboBox1->TabIndex = 2;
@@ -138,115 +144,99 @@ namespace Project7 {
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(18, 101);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(56, 17);
+			this->label2->Size = System::Drawing::Size(67, 17);
 			this->label2->TabIndex = 3;
-			this->label2->Text = L"Второй";
+			this->label2->Text = L"Февраль";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
 			this->label3->Location = System::Drawing::Point(18, 118);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(56, 17);
+			this->label3->Size = System::Drawing::Size(42, 17);
 			this->label3->TabIndex = 4;
-			this->label3->Text = L"Третий";
-			// 
-			// chart1
-			// 
-			chartArea1->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea1);
-			this->chart1->Location = System::Drawing::Point(350, 31);
-			this->chart1->Name = L"chart1";
-			series1->BorderWidth = 6;
-			series1->ChartArea = L"ChartArea1";
-			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series1->Name = L"Курс по мес.";
-			this->chart1->Series->Add(series1);
-			this->chart1->Size = System::Drawing::Size(1092, 240);
-			this->chart1->TabIndex = 5;
-			this->chart1->Text = L"Курс по мес";
-			this->chart1->Click += gcnew System::EventHandler(this, &MyForm::chart1_Click);
+			this->label3->Text = L"Март";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
 			this->label4->Location = System::Drawing::Point(17, 135);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(81, 17);
+			this->label4->Size = System::Drawing::Size(56, 17);
 			this->label4->TabIndex = 6;
-			this->label4->Text = L"Четвертый";
+			this->label4->Text = L"Апрель";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
 			this->label5->Location = System::Drawing::Point(18, 152);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(51, 17);
+			this->label5->Size = System::Drawing::Size(35, 17);
 			this->label5->TabIndex = 7;
-			this->label5->Text = L"Пятый";
+			this->label5->Text = L"Май";
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
 			this->label6->Location = System::Drawing::Point(18, 169);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(57, 17);
+			this->label6->Size = System::Drawing::Size(43, 17);
 			this->label6->TabIndex = 8;
-			this->label6->Text = L"Шетсой";
+			this->label6->Text = L"Июнь";
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
 			this->label7->Location = System::Drawing::Point(17, 186);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(65, 17);
+			this->label7->Size = System::Drawing::Size(43, 17);
 			this->label7->TabIndex = 9;
-			this->label7->Text = L"Седьмой";
+			this->label7->Text = L"Июль";
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
 			this->label8->Location = System::Drawing::Point(17, 203);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(64, 17);
+			this->label8->Size = System::Drawing::Size(50, 17);
 			this->label8->TabIndex = 10;
-			this->label8->Text = L"Восьмой";
+			this->label8->Text = L"Август";
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
 			this->label9->Location = System::Drawing::Point(17, 220);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(67, 17);
+			this->label9->Size = System::Drawing::Size(71, 17);
 			this->label9->TabIndex = 11;
-			this->label9->Text = L"Девятый";
+			this->label9->Text = L"Сентябрь";
 			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
 			this->label10->Location = System::Drawing::Point(18, 237);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(67, 17);
+			this->label10->Size = System::Drawing::Size(64, 17);
 			this->label10->TabIndex = 12;
-			this->label10->Text = L"Десятый";
+			this->label10->Text = L"Октябрь";
 			// 
 			// label11
 			// 
 			this->label11->AutoSize = true;
 			this->label11->Location = System::Drawing::Point(17, 254);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(99, 17);
+			this->label11->Size = System::Drawing::Size(57, 17);
 			this->label11->TabIndex = 13;
-			this->label11->Text = L"Одинатцатый";
+			this->label11->Text = L"Ноябрь";
 			// 
 			// label12
 			// 
 			this->label12->AutoSize = true;
 			this->label12->Location = System::Drawing::Point(17, 271);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(99, 17);
+			this->label12->Size = System::Drawing::Size(65, 17);
 			this->label12->TabIndex = 14;
-			this->label12->Text = L"Двенадцатый";
+			this->label12->Text = L"Декабрь";
 			// 
 			// label13
 			// 
@@ -284,27 +274,62 @@ namespace Project7 {
 			this->label16->TabIndex = 18;
 			this->label16->Text = L"MEDIAN";
 			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Location = System::Drawing::Point(18, 394);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(28, 17);
+			this->label17->TabIndex = 20;
+			this->label17->Text = L"a =";
+			// 
+			// label18
+			// 
+			this->label18->AutoSize = true;
+			this->label18->Location = System::Drawing::Point(18, 411);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(28, 17);
+			this->label18->TabIndex = 21;
+			this->label18->Text = L"b =";
+			// 
 			// chart2
 			// 
-			chartArea2->Name = L"ChartArea1";
-			this->chart2->ChartAreas->Add(chartArea2);
-			this->chart2->Location = System::Drawing::Point(196, 294);
+			chartArea1->Name = L"ChartArea1";
+			this->chart2->ChartAreas->Add(chartArea1);
+			legend1->Name = L"Legend1";
+			this->chart2->Legends->Add(legend1);
+			this->chart2->Location = System::Drawing::Point(335, -3);
 			this->chart2->Name = L"chart2";
-			series2->BorderWidth = 3;
+			series1->BorderWidth = 2;
+			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series1->Legend = L"Legend1";
+			series1->Name = L"Курс по дням";
+			series2->BorderWidth = 2;
 			series2->ChartArea = L"ChartArea1";
 			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series2->Name = L"Курс по дням";
+			series2->Legend = L"Legend1";
+			series2->Name = L"Лин.рег.";
+			series3->BorderWidth = 2;
+			series3->ChartArea = L"ChartArea1";
+			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::StepLine;
+			series3->Legend = L"Legend1";
+			series3->Name = L"Курс по мес.";
+			this->chart2->Series->Add(series1);
 			this->chart2->Series->Add(series2);
-			this->chart2->Size = System::Drawing::Size(1246, 491);
-			this->chart2->TabIndex = 19;
+			this->chart2->Series->Add(series3);
+			this->chart2->Size = System::Drawing::Size(1092, 774);
+			this->chart2->TabIndex = 22;
 			this->chart2->Text = L"chart2";
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1454, 809);
+			this->ClientSize = System::Drawing::Size(1422, 774);
 			this->Controls->Add(this->chart2);
+			this->Controls->Add(this->label18);
+			this->Controls->Add(this->label17);
 			this->Controls->Add(this->label16);
 			this->Controls->Add(this->label15);
 			this->Controls->Add(this->label14);
@@ -318,7 +343,6 @@ namespace Project7 {
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
-			this->Controls->Add(this->chart1);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->comboBox1);
@@ -326,7 +350,6 @@ namespace Project7 {
 			this->Controls->Add(this->button1);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart2))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -336,6 +359,7 @@ namespace Project7 {
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		
 		String^ str;
+		String^ str1;
 		float cur,MAX=0.000,MIN=1000.000,AVG=0.000,MEDIAN=0.000;
 		float temp[12],day[366];
 		WebClient^ wb = gcnew WebClient;
@@ -348,6 +372,7 @@ namespace Project7 {
 				Match^ match = regex->Match(line);
 				str = match->Groups[3]->Value;
 				string conv = msclr::interop::marshal_as< string >(str);
+				
 				day[i - 1] = ::atof(conv.c_str());
 				AVG += day[i - 1];
 			}
@@ -357,6 +382,7 @@ namespace Project7 {
 				Match^ match = regex->Match(line);
 				str = match->Groups[3]->Value;
 				string conv = msclr::interop::marshal_as< string >(str);
+				
 				day[i - 1] = ::atof(conv.c_str());
 				AVG += day[i - 1];
 			}
@@ -633,16 +659,9 @@ namespace Project7 {
 		label12->Text = "Декабрь : 1" + comboBox1->Text + " = " + avgm[11] + " RUB";
 		AVG = 0;
 
-		this->chart1->Series[0]->Points->Clear();
-
-		for (int i = 0; i < 12; i++) {
-			this->chart1->Series[0]->Points->AddXY(i+1, avgm[i]);
-		}
-		for (int i = 0; i < 366; i++) {
-			this->chart2->Series[0]->Points->AddXY(i + 1, day[i]);
-		}
+		
 		sort(avgm, avgm + 12);
-		MEDIAN = (avgm[6] + avgm[7]) / 2;
+		MEDIAN = (avgm[6] + avgm[7]) / 2.00;
 
 		for (int i = 0; i < 12; i++) {
 			if (MAX < avgm[i]) { MAX = avgm[i]; }
@@ -655,10 +674,50 @@ namespace Project7 {
 		label14->Text = "MIN :" + MIN;
 		label15->Text = "AVG :" + AVG;
 		label16->Text = "MEDIAN :" + MEDIAN;
+
+		int k[366], S_k, S_k2;
+		double S_yk = 0, S_y;
+		for (int i = 1; i <= 366; i++)
+		{
+			k[i] = i;
+			S_yk += (day[i - 1] * k[i]);
+			S_y += day[i - 1];
+			S_k += k[i];
+			S_k2 += pow(k[i], 2);
+		}
+		double M_yk = (S_yk / 366);
+		double M_y = (S_y / 366);
+		double M_k = (S_k / 366);
+		double M_k2 = (S_k2 / 366);
+		double a = (M_yk - (M_y * M_k)) / (M_k2 - pow(M_k, 2));
+		double b = M_y - a * M_k;
+		label17->Text = "a = " + a;
+		label18->Text = "b = " + b;
+		double Y = 0;
 		
+		this->chart2->Series[0]->Points->Clear();
+		this->chart2->Series[1]->Points->Clear();
+
+		
+		int m = 0;
+		for (int i = 0; i < 12; i++) {
+			this->chart2->Series[2]->Points->AddXY(i +m+1 , avgm[i]);
+			m += 30;
+		}
+		for (int i = 0; i < 366; i++) {
+			this->chart2->Series[0]->Points->AddXY(i+1, day[i]);
+			Y = (a * i) + b;
+			this->chart2->Series[1]->Points->AddXY(i + 1, Y);
+
+		}
+		
+		
+			
 	}
 
 private: System::Void chart1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void chart2_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
